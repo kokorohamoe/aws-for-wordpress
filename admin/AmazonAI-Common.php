@@ -11,64 +11,64 @@ class AmazonAI_Common
 {
 
 	// Information about languages supported by the AWS plugin
-	private $languages = [
+	private $languages = array(
 
-		['code' => 'af', 'name' => 'Afrikaans', 'translatable' => '1', 'polly' => '0'],
-		['code' => 'sq', 'name' => 'Albanian', 'translatable' => '1', 'polly' => '0'],
-		['code' => 'am', 'name' => 'Amharic', 'translatable' => '1', 'polly' => '0'],
-		['code' => 'ar', 'name' => 'Arabic', 'translatable' => '1', 'polly' => '1'],
-		['code' => 'az', 'name' => 'Azerbaijani', 'translatable' => '1', 'polly' => '0'],
-		['code' => 'bn', 'name' => 'Bengali', 'translatable' => '1', 'polly' => '0'],
-		['code' => 'bs', 'name' => 'Bosnian', 'translatable' => '1', 'polly' => '0'],
-		['code' => 'bg', 'name' => 'Bulgarian', 'translatable' => '1', 'polly' => '0'],
-		['code' => 'fr-CA', 'name' => 'Canadian French', 'translatable' => '1', 'polly' => '0'],
-		['code' => 'da', 'name' => 'Danish', 'translatable' => '1', 'polly' => '1'],
-		['code' => 'nl', 'name' => 'Dutch', 'translatable' => '1', 'polly' => '1'],
-		['code' => 'zh', 'name' => 'Chinese', 'translatable' => '1', 'polly' => '1'],
-		['code' => 'hr', 'name' => 'Croatian', 'translatable' => '1', 'polly' => '0'],
-		['code' => 'cs', 'name' => 'Czech', 'translatable' => '1', 'polly' => '0'],
-		['code' => 'fa-AF', 'name' => 'Dari', 'translatable' => '1', 'polly' => '1'],
-		['code' => 'en', 'name' => 'English', 'translatable' => '1', 'polly' => '1'],
-		['code' => 'et', 'name' => 'Estonian', 'translatable' => '1', 'polly' => '0'],
-		['code' => 'fi', 'name' => 'Finish', 'translatable' => '1', 'polly' => ''],
-		['code' => 'fr', 'name' => 'French', 'translatable' => '1', 'polly' => '1'],
-		['code' => 'ka', 'name' => 'Georgian', 'translatable' => '1', 'polly' => '0'],
-		['code' => 'de', 'name' => 'German', 'translatable' => '1', 'polly' => '1'],
-		['code' => 'el', 'name' => 'Greek', 'translatable' => '1', 'polly' => '0'],
-		['code' => 'ha', 'name' => 'Hausa', 'translatable' => '1', 'polly' => '0'],
-		['code' => 'he', 'name' => 'Hebrew', 'translatable' => '1', 'polly' => ''],
-		['code' => 'hi', 'name' => 'Hindi', 'translatable' => '1', 'polly' => ''],
-		['code' => 'hu', 'name' => 'Hungarian', 'translatable' => '1', 'polly' => '0'],
-		['code' => 'is', 'name' => 'Icelandic', 'translatable' => '0', 'polly' => '1'],
-		['code' => 'it', 'name' => 'Italian', 'translatable' => '1', 'polly' => '1'],
-		['code' => 'id', 'name' => 'Indonesian', 'translatable' => '1', 'polly' => ''],
-		['code' => 'ja', 'name' => 'Japanese', 'translatable' => '1', 'polly' => '1'],
-		['code' => 'ko', 'name' => 'Korean', 'translatable' => '1', 'polly' => '1'],
-		['code' => 'lv', 'name' => 'Latvian', 'translatable' => '1', 'polly' => '0'],
-		['code' => 'ms', 'name' => 'Malay', 'translatable' => '1', 'polly' => ''],
-		['code' => 'no', 'name' => 'Norwegian', 'translatable' => '1', 'polly' => '1'],
-		['code' => 'fa', 'name' => 'Persian', 'translatable' => '1', 'polly' => ''],
-		['code' => 'pl', 'name' => 'Polish', 'translatable' => '1', 'polly' => '1'],
-		['code' => 'pt', 'name' => 'Portuguese', 'translatable' => '1', 'polly' => '1'],
-		['code' => 'ps', 'name' => 'Pushto', 'translatable' => '1', 'polly' => '0'],
-		['code' => 'ro', 'name' => 'Romanian', 'translatable' => '1', 'polly' => '1'],
-		['code' => 'sr', 'name' => 'Serbian', 'translatable' => '1', 'polly' => '0'],
-		['code' => 'sk', 'name' => 'Slovak', 'translatable' => '1', 'polly' => '0'],
-		['code' => 'sl', 'name' => 'Slovenian', 'translatable' => '1', 'polly' => '0'],
-		['code' => 'so', 'name' => 'Somali', 'translatable' => '1', 'polly' => '0'],
-		['code' => 'sw', 'name' => 'Swahili', 'translatable' => '1', 'polly' => '0'],
-		['code' => 'ru', 'name' => 'Russian', 'translatable' => '1', 'polly' => '1'],
-		['code' => 'es', 'name' => 'Spanish', 'translatable' => '1', 'polly' => '1'],
-		['code' => 'sv', 'name' => 'Swedish', 'translatable' => '1', 'polly' => '1'],
-		['code' => 'tl', 'name' => 'Tagalog', 'translatable' => '1', 'polly' => '0'],
-		['code' => 'ta', 'name' => 'Tamil', 'translatable' => '1', 'polly' => '0'],
-		['code' => 'th', 'name' => 'Thai', 'translatable' => '1', 'polly' => '0'],
-		['code' => 'tr', 'name' => 'Turkish', 'translatable' => '1', 'polly' => '1'],
-		['code' => 'uk', 'name' => 'Ukrainian', 'translatable' => '1', 'polly' => '0'],
-		['code' => 'ur', 'name' => 'Urdu', 'translatable' => '1', 'polly' => '0'],
-		['code' => 'vi', 'name' => 'Vietnamese', 'translatable' => '1', 'polly' => '0'],
-		['code' => 'cy', 'name' => 'Welsh', 'translatable' => '', 'polly' => '1']
-	];
+		array('code' => 'af', 'name' => 'Afrikaans', 'translatable' => '1', 'polly' => '0'),
+		array('code' => 'sq', 'name' => 'Albanian', 'translatable' => '1', 'polly' => '0'),
+		array('code' => 'am', 'name' => 'Amharic', 'translatable' => '1', 'polly' => '0'),
+		array('code' => 'ar', 'name' => 'Arabic', 'translatable' => '1', 'polly' => '1'),
+		array('code' => 'az', 'name' => 'Azerbaijani', 'translatable' => '1', 'polly' => '0'),
+		array('code' => 'bn', 'name' => 'Bengali', 'translatable' => '1', 'polly' => '0'),
+		array('code' => 'bs', 'name' => 'Bosnian', 'translatable' => '1', 'polly' => '0'),
+		array('code' => 'bg', 'name' => 'Bulgarian', 'translatable' => '1', 'polly' => '0'),
+		array('code' => 'fr-CA', 'name' => 'Canadian French', 'translatable' => '1', 'polly' => '0'),
+		array('code' => 'da', 'name' => 'Danish', 'translatable' => '1', 'polly' => '1'),
+		array('code' => 'nl', 'name' => 'Dutch', 'translatable' => '1', 'polly' => '1'),
+		array('code' => 'zh', 'name' => 'Chinese', 'translatable' => '1', 'polly' => '1'),
+		array('code' => 'hr', 'name' => 'Croatian', 'translatable' => '1', 'polly' => '0'),
+		array('code' => 'cs', 'name' => 'Czech', 'translatable' => '1', 'polly' => '0'),
+		array('code' => 'fa-AF', 'name' => 'Dari', 'translatable' => '1', 'polly' => '1'),
+		array('code' => 'en', 'name' => 'English', 'translatable' => '1', 'polly' => '1'),
+		array('code' => 'et', 'name' => 'Estonian', 'translatable' => '1', 'polly' => '0'),
+		array('code' => 'fi', 'name' => 'Finish', 'translatable' => '1', 'polly' => ''),
+		array('code' => 'fr', 'name' => 'French', 'translatable' => '1', 'polly' => '1'),
+		array('code' => 'ka', 'name' => 'Georgian', 'translatable' => '1', 'polly' => '0'),
+		array('code' => 'de', 'name' => 'German', 'translatable' => '1', 'polly' => '1'),
+		array('code' => 'el', 'name' => 'Greek', 'translatable' => '1', 'polly' => '0'),
+		array('code' => 'ha', 'name' => 'Hausa', 'translatable' => '1', 'polly' => '0'),
+		array('code' => 'he', 'name' => 'Hebrew', 'translatable' => '1', 'polly' => ''),
+		array('code' => 'hi', 'name' => 'Hindi', 'translatable' => '1', 'polly' => ''),
+		array('code' => 'hu', 'name' => 'Hungarian', 'translatable' => '1', 'polly' => '0'),
+		array('code' => 'is', 'name' => 'Icelandic', 'translatable' => '0', 'polly' => '1'),
+		array('code' => 'it', 'name' => 'Italian', 'translatable' => '1', 'polly' => '1'),
+		array('code' => 'id', 'name' => 'Indonesian', 'translatable' => '1', 'polly' => ''),
+		array('code' => 'ja', 'name' => 'Japanese', 'translatable' => '1', 'polly' => '1'),
+		array('code' => 'ko', 'name' => 'Korean', 'translatable' => '1', 'polly' => '1'),
+		array('code' => 'lv', 'name' => 'Latvian', 'translatable' => '1', 'polly' => '0'),
+		array('code' => 'ms', 'name' => 'Malay', 'translatable' => '1', 'polly' => ''),
+		array('code' => 'no', 'name' => 'Norwegian', 'translatable' => '1', 'polly' => '1'),
+		array('code' => 'fa', 'name' => 'Persian', 'translatable' => '1', 'polly' => ''),
+		array('code' => 'pl', 'name' => 'Polish', 'translatable' => '1', 'polly' => '1'),
+		array('code' => 'pt', 'name' => 'Portuguese', 'translatable' => '1', 'polly' => '1'),
+		array('code' => 'ps', 'name' => 'Pushto', 'translatable' => '1', 'polly' => '0'),
+		array('code' => 'ro', 'name' => 'Romanian', 'translatable' => '1', 'polly' => '1'),
+		array('code' => 'sr', 'name' => 'Serbian', 'translatable' => '1', 'polly' => '0'),
+		array('code' => 'sk', 'name' => 'Slovak', 'translatable' => '1', 'polly' => '0'),
+		array('code' => 'sl', 'name' => 'Slovenian', 'translatable' => '1', 'polly' => '0'),
+		array('code' => 'so', 'name' => 'Somali', 'translatable' => '1', 'polly' => '0'),
+		array('code' => 'sw', 'name' => 'Swahili', 'translatable' => '1', 'polly' => '0'),
+		array('code' => 'ru', 'name' => 'Russian', 'translatable' => '1', 'polly' => '1'),
+		array('code' => 'es', 'name' => 'Spanish', 'translatable' => '1', 'polly' => '1'),
+		array('code' => 'sv', 'name' => 'Swedish', 'translatable' => '1', 'polly' => '1'),
+		array('code' => 'tl', 'name' => 'Tagalog', 'translatable' => '1', 'polly' => '0'),
+		array('code' => 'ta', 'name' => 'Tamil', 'translatable' => '1', 'polly' => '0'),
+		array('code' => 'th', 'name' => 'Thai', 'translatable' => '1', 'polly' => '0'),
+		array('code' => 'tr', 'name' => 'Turkish', 'translatable' => '1', 'polly' => '1'),
+		array('code' => 'uk', 'name' => 'Ukrainian', 'translatable' => '1', 'polly' => '0'),
+		array('code' => 'ur', 'name' => 'Urdu', 'translatable' => '1', 'polly' => '0'),
+		array('code' => 'vi', 'name' => 'Vietnamese', 'translatable' => '1', 'polly' => '0'),
+		array('code' => 'cy', 'name' => 'Welsh', 'translatable' => '', 'polly' => '1')
+	);
 
 	private $sdk;
 	private $sdk_use1; // SDK with region fixed as us-east-1
@@ -197,7 +197,7 @@ class AmazonAI_Common
 	}
 
 	public function get_all_languages() {
-		$supported_languages = [];
+		$supported_languages = array();
 
 		foreach ($this->languages as $language_data) {
 			$language_code = $language_data['code'];
@@ -208,7 +208,7 @@ class AmazonAI_Common
 	}
 
 	public function get_all_translatable_languages() {
-		$supported_languages = [];
+		$supported_languages = array();
 
 		foreach ($this->languages as $language_data) {
 			$language_code = $language_data['code'];
@@ -249,7 +249,7 @@ class AmazonAI_Common
 	public function get_all_polly_languages() {
 
 
-		$supported_languages = [];
+		$supported_languages = array();
 
 		foreach ($this->languages as $language_data) {
 			$language_code = $language_data['code'];
@@ -1213,20 +1213,20 @@ class AmazonAI_Common
 	 */
 	private function get_aws_sdk_config($region = null)
 	{
-		$aws_sdk_config = [
+		$aws_sdk_config = array(
 			'region' => $this->get_aws_region(),
 			'version' => 'latest',
-			'ua_append' => ['request-source/aws-for-wordpress']
-		];
+			'ua_append' => array('request-source/aws-for-wordpress')
+		);
 		$credentials = false;
 		$aws_access_key = get_option('amazon_polly_access_key');
 		$aws_secret_key = get_option('amazon_polly_secret_key');
 
 		if ($aws_access_key && $aws_secret_key) {
-			$credentials = [
+			$credentials = array(
 				'key' => $aws_access_key,
 				'secret' => $aws_secret_key,
-			];
+			);
 		}
 
 		if ($credentials = apply_filters('amazon_polly_aws_sdk_credentials', $credentials)) {
@@ -1355,7 +1355,7 @@ class AmazonAI_Common
 		$text = str_replace('-AMAZONPOLLY-ONLYAUDIO-START-', '', $text);
 		$text = str_replace('-AMAZONPOLLY-ONLYAUDIO-END-', '', $text);
 		$text = preg_replace('/-AMAZONPOLLY-ONLYWORDS-START-[\S\s]*?-AMAZONPOLLY-ONLYWORDS-END-/', '', $text);
-		$parts = [];
+		$parts = array();
 		if (!empty($text)) {
 			$part_id = 0;
 			$paragraphs = explode("\n", $text);
@@ -1416,7 +1416,7 @@ class AmazonAI_Common
 	 */
 	public function modify_speed($sentences)
 	{
-		$new_sentences = [];
+		$new_sentences = array();
 		$new_sentence_id = 0;
 		$speed = $this->get_audio_speed();
 		if (100 !== $speed) {
@@ -1838,7 +1838,7 @@ class AmazonAI_Common
 			// This is HTML id of the box on edit screen.
 			'Amazon Polly',
 			// Title of the box.
-			[ $meta_box, 'display_box_content'],
+			array( $meta_box, 'display_box_content'),
 			// Function to be called to display the checkboxes, see the function below.
 			$post_types_supported,
 			// On which edit screen the box should appear.

@@ -29,24 +29,24 @@ class AmazonAI_BackgroundTask {
    *
    * @return bool True if http request to trigger background task is successful, false otherwise
    */
-  public function trigger($task, $args = []) {
+  public function trigger($task, $args = array()) {
     $url = admin_url('admin-post.php');
 
-    $request_args = [
+    $request_args = array(
       'timeout' => 0.01,
       'blocking' => false,
       /** This filter is documented in WordPress Core wp-includes/class-wp-http-streams.php */
       'sslverify' => apply_filters('https_local_ssl_verify', false),
-      'body' => [
+      'body' => array(
         'nonce' => wp_create_nonce($this->nonce_action_for_task($task)),
         'action' => self::ADMIN_POST_ACTION,
         'task' => $task,
         'args' => json_encode($args),
-      ],
-      'headers' => [
+      ),
+      'headers' => array(
         'cookie' => implode('; ', $this->get_cookies()),
-      ],
-    ];
+      ),
+    );
 
     $logger = new AmazonAI_Logger();
     $logger->log(sprintf('%s Triggering background task %s', __METHOD__, $task));
@@ -64,7 +64,7 @@ class AmazonAI_BackgroundTask {
    */
   public function run() {
     $task = (array_key_exists('task', $_POST)) ? trim($_POST['task']) : '';
-    $args = (array_key_exists('args', $_POST)) ? json_decode($_POST['args']) : [];
+    $args = (array_key_exists('args', $_POST)) ? json_decode($_POST['args']) : array();
 
     if ( empty($task) ) {
       error_log(sprintf('%s Invalid background task. Missing task.', __METHOD__));
@@ -99,7 +99,7 @@ class AmazonAI_BackgroundTask {
    * @return array Sanitized cookies
    */
   private function get_cookies() {
-    $cookies = [];
+    $cookies = array();
 
     foreach ( $_COOKIE as $name => $value ) {
       $sanitized_value = is_array($value) ? serialize($value) : $value;

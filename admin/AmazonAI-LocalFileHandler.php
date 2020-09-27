@@ -44,7 +44,9 @@ class AmazonAI_LocalFileHandler extends AmazonAI_FileHandler {
     public function delete($wp_filesystem, $file, $post_id) {
 
       // Getting full file path.
-      $upload_dir       = trailingslashit( wp_upload_dir()['basedir'] );
+$tmp = wp_upload_dir();
+$tmp = $tmp ['basedir'];
+      $upload_dir       = trailingslashit( $tmp );
       $prefix           = $this->get_prefix($post_id);
       $file_full_path   = $upload_dir . $prefix . $file;
 
@@ -81,7 +83,9 @@ class AmazonAI_LocalFileHandler extends AmazonAI_FileHandler {
         $wp_filesystem->delete( $file_temp_full_name );
 
         // Creating final link to the file
-        $audio_location_link = trailingslashit(wp_upload_dir()['baseurl']) . $this->get_prefix($post_id) . $file_name;
+$tmp = wp_upload_dir();
+$tmp = $tmp['baseurl'];
+        $audio_location_link = trailingslashit($tmp) . $this->get_prefix($post_id) . $file_name;
 
         // Adding audio info to media library (If Media Library was selected)
         $common = $this->common;

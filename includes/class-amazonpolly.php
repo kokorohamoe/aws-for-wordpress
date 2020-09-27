@@ -191,7 +191,7 @@ class Amazonpolly {
 	 */
 	private function define_global_hooks()
 	{
-		add_filter('amazon_polly_logging_enabled', [ $this->common, 'is_logging_enabled' ]);
+		add_filter('amazon_polly_logging_enabled',  array( $this->common, 'is_logging_enabled' ));
 	}
 
 	/**

@@ -169,13 +169,13 @@ class AmazonAI_Translator {
       }
 
 			// Performing actual translation.
-      $translated_text_part = $translate_client->translateText(
+      $translated_text_part = $translate_client->translateText[
         array(
           'SourceLanguageCode' => $source_language,
           'TargetLanguageCode' => $target_language,
           'Text'               => $part,
         )
-      )['TranslatedText'];
+      ]['TranslatedText'];
 
 			// We join all translated parts.
       $translated_text = $translated_text . ' ' . $translated_text_part;
@@ -201,7 +201,7 @@ class AmazonAI_Translator {
     $text = str_replace( '-AMAZONPOLLY-ONLYAUDIO-END-', '', $text );
     $text = preg_replace( '/-AMAZONPOLLY-ONLYWORDS-START-[\S\s]*?-AMAZONPOLLY-ONLYWORDS-END-/', '', $text );
 
-    $parts   = [];
+    $parts   = array();
     $part_id = 0;
 
     $text_size = strlen( trim( $text ) );
@@ -263,7 +263,7 @@ class AmazonAI_Translator {
 		$percentage = 0;
 		$message    = '';
 
-		$all_langs = [];
+		$all_langs = array();
 		$index     = 0;
 
 		$source_language  = $common->get_source_language();
